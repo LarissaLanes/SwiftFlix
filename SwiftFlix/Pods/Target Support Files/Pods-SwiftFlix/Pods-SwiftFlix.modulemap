@@ -1,0 +1,6 @@
+framework module Pods_SwiftFlix {
+  umbrella header "Pods-SwiftFlix-umbrella.h"
+
+  export *
+  module * { export * }
+}
