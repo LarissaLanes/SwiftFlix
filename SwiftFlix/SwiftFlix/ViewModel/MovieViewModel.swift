@@ -29,9 +29,10 @@ class TMDB_API{
 
     static private let basePath = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&"
     static private let key = "e6b1a12b8f0352dc460778b870447b5a"
+    static private let language = "pt-BR"
 
-    class func getMovies(onComplete: @escaping ([MoviesData]) -> Void, onError: @escaping (Errors) -> Void) {
-        guard let url = URL(string: basePath + "api_key=\(key)") else {
+    class func getMovies(page: Int = 1 , onComplete: @escaping ([MoviesData]) -> Void, onError: @escaping (Errors) -> Void) {
+        guard let url = URL(string: basePath + "api_key=\(key)&language=\(language)&page=\(page)" ) else {
             onError(.url)
             return
         }
@@ -61,7 +62,6 @@ class TMDB_API{
         }
         dataTask.resume()
     }
-    
   }
 
 
